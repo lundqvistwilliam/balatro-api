@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import jokerRoutes from "./routes/jokerRoutes.js";
 import packRoutes from "./routes/packRoutes.js";
+import voucherRoutes from "./routes/voucherRoutes.js";
 
 
 dotenv.config();
@@ -19,6 +20,8 @@ app.get("/", (req, res) => {
 app.use("/api/jokers", jokerRoutes);
 
 app.use("/api/packs", packRoutes);
+
+app.use("/api/vouchers", voucherRoutes);
 
 
 app.listen(PORT, () => {

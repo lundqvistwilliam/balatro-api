@@ -1,13 +1,16 @@
 import express from "express";
-import { getAllPacksHandler } from "../controllers/packController.js";
+import { getAllPacksHandler, getPacksByCategoryHandler } from "../controllers/packController.js";
 
 const router = express.Router();
 
-// Route to get all packs
 router.get("/", (req, res, next) => {
-  console.log("Request to /api/packs received");
   next();
-}, getAllPacksHandler);
+}, async (req, res) => {
+  if (req.query.category) {
+    return await getPacksByCategoryHandler(req, res);
+  }
+  return await getAllPacksHandler(req, res);
+});
 
 
 export default router;

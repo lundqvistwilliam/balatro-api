@@ -11,3 +11,15 @@ export const getAllBoosterPacks = async () => {
 
   return data;
 };
+
+
+// Get packs by category
+export const getBoosterPacksByCategory = async (category) => {
+  const { data, error } = await supabase
+    .from("booster_pack")
+    .select("*")
+    .ilike("category", category);
+
+  if (error) throw new Error(error.message);
+  return data;
+};

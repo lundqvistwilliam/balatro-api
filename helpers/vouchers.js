@@ -1,5 +1,6 @@
 import supabase from "../config/supabase_config.js";
 
+// Gets all vouchers and their upgrades included
 export const getAllVouchers = async () => {
   const { data, error } = await supabase
     .from("voucher")
@@ -7,9 +8,8 @@ export const getAllVouchers = async () => {
       id, 
       name, 
       effect, 
-      unlock_condition,
       image, 
-      voucher_upgrade(id, name, effect, image)
+      voucher_upgrade(id, name, effect, unlock_condition, image)
     `);
 
   if (error) {
@@ -18,3 +18,4 @@ export const getAllVouchers = async () => {
 
   return data;
 };
+

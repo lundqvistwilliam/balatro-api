@@ -9,6 +9,8 @@ import tarotRoutes from "./routes/tarotRoutes.js";
 import cardModifierRoutes from "./routes/cardModifierRoutes.js";
 import deckRoutes from "./routes/deckRoutes.js";
 import spectralRoutes from "./routes/spectralRoutes.js";
+import stakeRoutes from "./routes/stakeRoutes.js";
+import blindRoutes from "./routes/blindRoutes.js";
 
 
 dotenv.config();
@@ -35,7 +37,12 @@ app.use("/api/tarots", tarotRoutes);
 app.use("/api/modifiers", cardModifierRoutes);
 
 app.use("/api/decks", deckRoutes);
+
 app.use("/api/spectral", spectralRoutes);
+
+app.use("/api/stakes", stakeRoutes);
+
+app.use("/api/blinds", blindRoutes);
 
 
 app.listen(PORT, () => {

@@ -28,3 +28,16 @@ export const getJokerById = async (joker_id) => {
   return data;
 };
 
+export const getJokerByRarity = async (rarity) => {
+  const { data, error } = await supabase
+    .from("joker")
+    .select("*")
+    .ilike("rarity", rarity);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  return data;
+}
+
